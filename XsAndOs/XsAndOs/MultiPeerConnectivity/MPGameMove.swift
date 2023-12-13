@@ -1,0 +1,21 @@
+//
+//  MPGameMove.swift
+//  XsAndOs
+//
+//  Created by Amaan Amaan on 13/12/23.
+//
+
+import Foundation
+
+struct MPGameMove: Codable {
+    enum Action: Int, Codable {
+        case start, move, reset, end
+    }
+    let action: Action
+    let playrName: String?
+    let index: Int?
+    
+    func data() -> Data? {
+        try? JSONEncoder().encode(self)
+    }
+}
